@@ -58,6 +58,7 @@ func main() {
 
 	githubactions.Infof("using server: %v\n", in[serverIdx].value)
 
+	githubactions.Infof("IN: %+v", in)
 	if in[serverIdx].value == "" || in[namespaceIdx].value == "" {
 		githubactions.Fatalf("server and workflow values are required\n")
 	}
