@@ -1,4 +1,4 @@
-name: Upload Test
+name: Upload Test File to namespace
 on:
   workflow_dispatch:
 jobs:
@@ -16,7 +16,7 @@ jobs:
           variable: test3
           data: ./thumb.png
           token: ${{ secrets.DIREKTIV_TOKEN }}
-        uses: vorteil/direktiv-actions-ghupload@test
+        uses: vorteil/direktiv-actions-ghupload@master
       - name: get output
         run: |
           echo ${{ steps.execute.outputs.body }}

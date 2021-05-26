@@ -1,4 +1,4 @@
-name: Upload Test
+name: Upload json data to workflow
 on:
   workflow_dispatch:
 jobs:
@@ -18,7 +18,7 @@ jobs:
               "hello": "world"
             }
           token: ${{ secrets.DIREKTIV_TOKEN }}
-        uses: vorteil/direktiv-actions-ghupload@test
+        uses: vorteil/direktiv-actions-ghupload@master
       - name: get output
         run: |
           echo ${{ steps.execute.outputs.body }}
