@@ -1,0 +1,44 @@
+name: 'Upload variable to Direktiv'
+description: 'Uploads a variable to direktiv'
+branding:
+  icon: 'play-circle'
+  color: 'blue'
+inputs:
+  server:
+    description: 'direktiv server ip or name'
+    required: true
+  protocol:
+    description: 'http or https'
+    required: false
+    default: 'https'
+  namespace:
+    description: 'namespace to upload to'
+    required: true
+  variable:
+    description: 'the name of the variable it will be saved as'
+    required: true
+  workflow: 
+    description: 'workflow to upload to'
+    required: false
+    default: ''
+  token:
+    description: 'access token for the direktiv server'
+    required: false
+    default: ''
+  data:
+    description: 'data to upload file or string'
+    required: false
+    default: ''
+outputs:
+  body:
+    description: 'body of the response of the upload'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.server }}
+    - ${{ inputs.namespace }}
+    - ${{ inputs.variable }}
+    - ${{ inputs.workflow }}
+    - ${{ inputs.token }}
+    - ${{ inputs.data }}
