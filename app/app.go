@@ -58,7 +58,6 @@ func main() {
 
 	githubactions.Infof("using server: %v\n", in[serverIdx].value)
 
-	githubactions.Infof("IN: %+v", in)
 	if in[serverIdx].value == "" || in[namespaceIdx].value == "" {
 		githubactions.Fatalf("server and workflow values are required\n")
 	}
@@ -79,7 +78,7 @@ func doRequest(in []args) {
 		urlPath += fmt.Sprintf("/variables/%s", variable)
 	}
 
-	githubactions.Infof("uploading data to %s/%s", namespace, workflow)
+	githubactions.Infof("uploading data to %s/%s\n", namespace, workflow)
 
 	u := &url.URL{}
 	u.Scheme = in[protocolIdx].value
@@ -120,6 +119,8 @@ func doRequest(in []args) {
 	if err != nil {
 		githubactions.Fatalf("unable to read response: %v", err)
 	}
+
+	githubactions.Infof("Received body: %s", data)
 
 	githubactions.SetOutput("body", fmt.Sprintf("%s", data))
 }
