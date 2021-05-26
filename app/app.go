@@ -18,12 +18,12 @@ type args struct {
 
 const (
 	serverIdx    = iota
-	variableIdx  = iota
+	protocolIdx  = iota
 	namespaceIdx = iota
+	variableIdx  = iota
 	workflowIdx  = iota
 	tokenIdx     = iota
 	dataIdx      = iota
-	protocolIdx  = iota
 )
 
 func main() {
@@ -33,7 +33,13 @@ func main() {
 			name: "server",
 		},
 		args{
+			name: "protocol",
+		},
+		args{
 			name: "namespace",
+		},
+		args{
+			name: "variable",
 		},
 		args{
 			name: "workflow",
@@ -42,13 +48,7 @@ func main() {
 			name: "token",
 		},
 		args{
-			name: "variable",
-		},
-		args{
 			name: "data",
-		},
-		args{
-			name: "protocol",
 		},
 	}
 
