@@ -6,13 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     name: test upload
     steps:
+      - name: get-something
+        run: wget https://i.kym-cdn.com/entries/icons/original/000/022/017/thumb.png
       - name: upload
         id: upload 
         with:
           server: playground.direktiv.io
           namespace: trent
           variable: test3
-          data: ./helloworld
+          data: ./thumb.png
           token: ${{ secrets.DIREKTIV_TOKEN }}
         uses: vorteil/direktiv-actions-ghupload@test
       - name: get output
