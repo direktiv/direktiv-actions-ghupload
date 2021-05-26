@@ -70,7 +70,7 @@ func doRequest(in []args) {
 	workflow := in[workflowIdx].value
 	variable := in[variableIdx].value
 
-	urlPath := "/api/namespaces/%s"
+	urlPath := fmt.Sprintf("/api/namespaces/%s", namespace)
 
 	if workflow != "" {
 		urlPath += fmt.Sprintf("/workflows/%s/variables/%s", workflow, variable)
